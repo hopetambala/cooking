@@ -6,40 +6,26 @@ import { OCNav } from "./nav/OCNav";
 import type { SubNavItem } from "./nav/OCNav";
 // import OCButton from "../button/OCButton";
 
-const recipeMenuItems: SubNavItem[] = [
-  {
-    text: "All Recipes",
-    url: "/recipes",
-  },
-  // {
-  //   text: "Healthy Recipes",
-  //   url: "/healthy-recipes",
-  // },
-];
-
-const infoMenuItems: SubNavItem[] = [
-  {
-    text: "About",
-    url: "/about",
-  },
-];
-
-export default function Header() {
+interface HeaderProps {
+  navPrimary: SubNavItem[];
+  navSecondary: SubNavItem[];
+}
+export default function Header({navPrimary, navSecondary}: HeaderProps) {
   return (
     <header className={styles["oc-header__container"]}>
       <div className={"class-sem-spacing-max-width-desktop"}>
         <div className={styles["oc-header"]}>
           {/**Only shows up Mobile */}
           {/* <OCButton /> */}
-          <OCNav items={recipeMenuItems} />
-          <div className={styles["oc-header"]}>
-            <h1 className="site-title">
-              <a href="https://cooking.puente-dr.org/">Cooking with Puente</a>
+          <OCNav items={navPrimary} />
+          <div className={styles["oc-header__title__container"]}>
+            <h1 className={styles["oc-header__title"]}>
+              <a href="/">En La Cocina</a>
             </h1>
           </div>
           {/**Only shows up Mobile */}
           {/* <OCButton /> */}
-          <OCNav items={infoMenuItems} />
+          <OCNav items={navSecondary} />
         </div>
       </div>
     </header>

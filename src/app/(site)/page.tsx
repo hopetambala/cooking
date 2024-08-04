@@ -1,4 +1,4 @@
-import { RecipeType } from "@/types/sanity.types";
+import { RecipeType } from "@/types/sanity.custom-types";
 import styles from "./page.module.css";
 import { AdLoadingSkeleton } from "@/overcooked-design-system/ad-components";
 import { getAllRecipePreviews } from "@/sanity/sanity.query";
@@ -10,18 +10,22 @@ interface PreviewCardProps {
   data: RecipeType;
 }
 const PreviewCard = ({ data }: PreviewCardProps) => {
-  const {
-    textTitleForRecipeName,
-    imageForLandingRecipe,
-  } = data;
+  const { slug, textTitleForRecipeName, textForRecipeTagline, imageForLandingRecipe } = data;
   return (
-    <OCCard headerText={textTitleForRecipeName} headerInverted>
+    <OCCard
+      headerText={textTitleForRecipeName || ""}
+      headerInverted
+      href={`/recipes/${slug?.current}`}
+    >
       <div className={styles.home__preview__card__image__container}>
         <OcImageComponent
           height={750}
           width={500}
-          src={imageForLandingRecipe.image}
-          alt={imageForLandingRecipe.alt}
+          src={
+            // imageForLandingRecipe?.asset?.toString() ||
+            `/fallback/fallback${Math.floor(Math.random() * 10) + 1}.jpg`
+          }
+          alt={imageForLandingRecipe?.alt || textForRecipeTagline || ""}
         />
       </div>
     </OCCard>
@@ -34,17 +38,6 @@ export default async function Home() {
   if (!recipes) {
     return <AdLoadingSkeleton />;
   }
-  // const {
-  // textTitleForRecipeName,
-  //   textForRecipeTagline,
-  //   textForIntroduction,
-  // imageForLandingRecipe,
-  //   imageForIngredients,
-  //   textForIngredients,
-  //   imageOfProcess,
-  //   textForProcess,
-  //   textFinishedProduct,
-  // } = recipe;
 
   return (
     <main className={styles.main}>
@@ -62,7 +55,13 @@ export default async function Home() {
         <AdLoadingSkeleton />
       </OcSection>
       <OcSection title="Fan Favorites">
-        <AdLoadingSkeleton />
+        <div>
+          <div>Recipe 1</div>
+          <div>Recipe 3</div>
+          <div>Recipe 3</div>
+          <div>Cute Blurb</div>
+        </div>
+        <div>Ad - Sticky</div>
       </OcSection>
       <OcSection title="Recipe Round-Ups" isAltBG>
         <OcGrid>

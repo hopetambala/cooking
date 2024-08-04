@@ -1,0 +1,32 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.home__preview__card__image__container {
+  overflow: hidden;
+  max-width: calc(280px * 1);
+  max-height: calc(420px * 1.25);
+}
+
+/* Mobile */
+@media (max-width: 992px) {
+  .home__preview__card__image__container {
+      overflow: hidden;
+      min-width: calc(280px * 1);
+      min-height: calc(420px * 1);
+    }
+}
+
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}

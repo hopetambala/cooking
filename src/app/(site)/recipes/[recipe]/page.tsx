@@ -1,20 +1,20 @@
 import Image from "next/image";
-import { Metadata } from "next";
 import { getSingleRecipeDetails } from "@/sanity/sanity.query";
-import type { RecipeType } from "@/types/sanity.types";
 import { PortableText } from "@portabletext/react";
-// import fallBackImage from "@/public/project.png";
+import type { RecipeType } from "@/types/sanity.custom-types";
+import type { Metadata } from "next";
+import { generateRandomFallbackImage } from "@/utils/testing-helpers";
 
-type Props = {
+type Params = {
   params: {
-    project: string;
+    recipe: string;
   };
 };
 
 // Dynamic metadata for SEO
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const slug = params.project;
-  const recipe: RecipeType = await getSingleRecipeDetails(slug);
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  // const slug = params.recipe;
+  const recipe: RecipeType = await getSingleRecipeDetails(params.recipe);
   const {
     textTitleForRecipeName: title,
     textForRecipeTagline: description,
@@ -25,49 +25,108 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${title} | Recipe`,
     description,
     openGraph: {
-      images: image?.image || "/fallback/fallback1.jpg",
+      images: image?.image || generateRandomFallbackImage(),
       title,
       description,
     },
   };
 }
 
-export default async function Project({ params }: Props) {
-  const slug = params.project;
+// const ContentBlock: FC<{value:PortableTextBlock}> = ({value}) => { 
+//   if(!value) return <AdLoadingSkeleton />
+//   return <PortableText value={value} />;
+// }
+
+export default async function Recipe({ params }: Params) {
+  const slug = params.recipe;
   const recipe: RecipeType = await getSingleRecipeDetails(slug);
   const {
     textTitleForRecipeName,
     // textForRecipeTagline,
     textForIntroduction,
     imageForLandingRecipe,
-    // imageForIngredients,
-    // textForIngredients,
-    // imageOfProcess,
-    // textForProcess,
-    // textFinishedProduct,
+    imageForIngredients,
+    textForIngredients,
+    imageOfProcess,
+    textForProcess,
+    imageForFinishedProduct,
+    textFinishedProduct,
   } = recipe;
 
   return (
-    <main className="max-w-6xl mx-auto lg:px-16 px-8">
-      <div className="max-w-3xl mx-auto">
-        <div className="flex items-start justify-between mb-4">
-          <h1 className="font-bold lg:text-5xl text-3xl lg:leading-tight mb-4">
-            {textTitleForRecipeName}
-          </h1>
-        </div>
-
+    <div>
+      <main>
+        <h1>{textTitleForRecipeName}</h1>
         <Image
-          className="rounded-xl border border-zinc-800"
-          width={900}
-          height={460}
-          src={imageForLandingRecipe?.image || `/fallback${Math.floor(Math.random() * 10) + 1}.jpg`}
+          width={760}
+          height={1140}
+          src={imageForLandingRecipe?.image || generateRandomFallbackImage()}
           alt={imageForLandingRecipe?.alt || textTitleForRecipeName}
         />
 
-        <div className="flex flex-col gap-y-6 mt-8 leading-7 text-zinc-400">
-          <PortableText value={textForIntroduction} />
+        <PortableText value={textForIntroduction} />
+        <div>Ad - Display Static</div>
+        <Image
+          width={760}
+          height={1140}
+          src={generateRandomFallbackImage()}
+          alt={imageForIngredients?.alt || ""}
+        />
+        <div>Ad - Display Static</div>
+        <PortableText value={textForIngredients} />
+        <div>Ad - Display Static</div>
+        <Image
+          width={760}
+          height={1140}
+          src={generateRandomFallbackImage()}
+          alt={imageOfProcess?.alt || ""}
+        />
+        <PortableText value={textForProcess} />
+        <div>Ad - Display Static</div>
+        <Image
+          width={760}
+          height={1140}
+          src={generateRandomFallbackImage()}
+          alt={imageForFinishedProduct?.alt || ""}
+        />
+        <PortableText value={textFinishedProduct} />
+        <div id="step-by-step-process">
+          <h2>{textTitleForRecipeName}</h2>
+          <p>Prep time, cook, time, total time deets</p>
+          <div>Cool calculator for serving idea i had</div>
+          <div>
+            <h3>Ingredients</h3>
+            Cool calculator for serving idea I had
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+      <aside>
+        <div>Search box for recipes</div>
+        <div id="meet-the-chef">
+          <h3>Meet the Chef</h3>
+          <Image
+            width={252}
+            height={252}
+            src={generateRandomFallbackImage()}
+            alt={imageForFinishedProduct?.alt || ""}
+          />
+          <p>
+            I’m Tieghan, the recipes you’ll find here are inspired by the people
+            and places I love most. I try to live simply, eat seasonally, and
+            cook with whole foods. My hope is to inspire a love for amazing
+            food, as well as the courage to try something new!
+          </p>
+        </div>
+        <div>Ad - Display Static</div>
+        <div id="Fan Favorites">
+          <h3>Related Recipes and fan favorites</h3>
+          <div>Recipe 1</div>
+          <div>Recipe 2</div>
+          <div>Recipe 3</div>
+          <button>View More</button>
+        </div>
+        <div>Ad - Sticky Rail</div>
+      </aside>
+    </div>
   );
 }

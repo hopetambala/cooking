@@ -15,6 +15,12 @@
   /* border-bottom: 2px solid $border-color; */
 }
 
+.oc-header__title__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* width: 100%; */
+}
 .oc-header__title{
   width: 100%;
 }
