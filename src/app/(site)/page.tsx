@@ -1,6 +1,6 @@
 import { RecipeType } from "@/types/sanity.custom-types";
 import styles from "./page.module.css";
-import { AdLoadingSkeleton } from "@/overcooked-design-system/ad-components";
+import { OcLoadingSkeleton } from "@/overcooked-design-system/ui-components";
 import { getAllRecipePreviews } from "@/sanity/sanity.query";
 import { OCCard, OcGrid } from "@/overcooked-design-system/ui-components";
 import OcImageComponent from "@/overcooked-design-system/ui-components/image/OcImageComponent";
@@ -36,7 +36,7 @@ export default async function Home() {
   const recipes: RecipeType[] = await getAllRecipePreviews();
 
   if (!recipes) {
-    return <AdLoadingSkeleton />;
+    return <OcLoadingSkeleton />;
   }
 
   return (
@@ -52,7 +52,7 @@ export default async function Home() {
         </OcGrid>
       </OcSection>
       <OcSection title="Recipe of the Month">
-        <AdLoadingSkeleton />
+        <OcLoadingSkeleton />
       </OcSection>
       <OcSection title="Fan Favorites">
         <div>

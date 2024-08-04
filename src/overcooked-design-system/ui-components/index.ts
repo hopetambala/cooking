@@ -6,3 +6,5 @@ export { default as OcGrid } from "./layout/grid/OcGrid";
 export { default as OCImage } from "./image/OcImageComponent";
 export { default as OCCard } from "./card/OCCard";
 export { default as OCButton } from "./button/OCButton";
+export { default as OcLoadingSkeleton } from "./loading-skeleton/OcLoadingSkeleton";
+

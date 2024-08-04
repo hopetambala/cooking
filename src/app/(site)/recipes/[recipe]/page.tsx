@@ -4,6 +4,7 @@ import { PortableText } from "@portabletext/react";
 import type { RecipeType } from "@/types/sanity.custom-types";
 import type { Metadata } from "next";
 import { generateRandomFallbackImage } from "@/utils/testing-helpers";
+import { AdBanner, AdSlot } from "@/overcooked-design-system/ad-components";
 
 type Params = {
   params: {
@@ -13,7 +14,6 @@ type Params = {
 
 // Dynamic metadata for SEO
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  // const slug = params.recipe;
   const recipe: RecipeType = await getSingleRecipeDetails(params.recipe);
   const {
     textTitleForRecipeName: title,
@@ -31,11 +31,6 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     },
   };
 }
-
-// const ContentBlock: FC<{value:PortableTextBlock}> = ({value}) => { 
-//   if(!value) return <AdLoadingSkeleton />
-//   return <PortableText value={value} />;
-// }
 
 export default async function Recipe({ params }: Params) {
   const slug = params.recipe;
@@ -63,18 +58,23 @@ export default async function Recipe({ params }: Params) {
           src={imageForLandingRecipe?.image || generateRandomFallbackImage()}
           alt={imageForLandingRecipe?.alt || textTitleForRecipeName}
         />
-
         <PortableText value={textForIntroduction} />
-        <div>Ad - Display Static</div>
+        <AdSlot name="Desktop In-Content 1" type="in-content">
+          <AdBanner dataAdSlotId="5492208947" type="display" />
+        </AdSlot>
         <Image
           width={760}
           height={1140}
           src={generateRandomFallbackImage()}
           alt={imageForIngredients?.alt || ""}
         />
-        <div>Ad - Display Static</div>
+        <AdSlot name="Desktop In-Content 2" type="in-content">
+          <AdBanner dataAdSlotId="5492208947" type="display" />
+        </AdSlot>
         <PortableText value={textForIngredients} />
-        <div>Ad - Display Static</div>
+        <AdSlot name="Desktop In-Content 3" type="in-content">
+          <AdBanner dataAdSlotId="5492208947" type="display" />
+        </AdSlot>
         <Image
           width={760}
           height={1140}
@@ -82,7 +82,9 @@ export default async function Recipe({ params }: Params) {
           alt={imageOfProcess?.alt || ""}
         />
         <PortableText value={textForProcess} />
-        <div>Ad - Display Static</div>
+        <AdSlot name="Desktop In-Article 4" type="in-content">
+          <AdBanner dataAdSlotId="8196230071" type="in-article" />
+        </AdSlot>
         <Image
           width={760}
           height={1140}
@@ -117,7 +119,9 @@ export default async function Recipe({ params }: Params) {
             food, as well as the courage to try something new!
           </p>
         </div>
-        <div>Ad - Display Static</div>
+        <AdSlot name="Desktop Sidebar 6" type="sidebar">
+          <AdBanner dataAdSlotId="5492208947" type="display" />
+        </AdSlot>
         <div id="Fan Favorites">
           <h3>Related Recipes and fan favorites</h3>
           <div>Recipe 1</div>
@@ -125,7 +129,9 @@ export default async function Recipe({ params }: Params) {
           <div>Recipe 3</div>
           <button>View More</button>
         </div>
-        <div>Ad - Sticky Rail</div>
+        <AdSlot name="Desktop Sidebar 7" type="sidebar--sticky">
+          <AdBanner dataAdSlotId="5492208947" type="display" />
+        </AdSlot>
       </aside>
     </div>
   );

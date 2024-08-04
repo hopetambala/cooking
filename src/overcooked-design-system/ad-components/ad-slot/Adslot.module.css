@@ -1,0 +1,62 @@
+/*from ad-sticky, we can chuck or re-use*/
+
+
+.ad-slot {
+  padding: 10px 0;
+  margin: var(--oc-prim-spacing-m) auto;
+  text-align: center;
+  background-color: #F1F1F1;
+}
+
+.ad-slot:before {
+  content: "ADVERTISEMENT";
+  vertical-align: top;
+  line-height: 15px;
+  width: 85%;
+  display: inline-block;
+  color: var(--oc-prim-color-neutral-300);
+  font-size: 10px;
+}
+
+.ad-slot__in-content {
+  min-width: 250px
+}
+
+.ad-slot__sidebar {
+  min-height: 250px;
+}
+
+.ad-slot__in-recipe {
+  float: right;
+  clear: right;
+  margin-left: calc(var(--oc-prim-spacing-m) -1) !important;
+}
+
+.ad-slot__sidebar--stuck {
+  position: sticky;
+  min-height: 250px;
+  width: 300px;
+}
+
+/* .adthrive-ad.adthrive-sidebar:before {
+  content: "ADVERTISEMENT";
+  vertical-align: top;
+  line-height: 15px;
+  width: 85%;
+  display: inline-block;
+  color: grey;
+  font-size: 10px;
+}
+
+.adthrive-ad.adthrive-content:before,
+.adthrive-ad.adthrive-recipe:before,
+.adthrive-ad.adthrive-below-post:before {
+  content: "ADVERTISEMENT";
+  vertical-align: top;
+  align-self: flex-start;
+  line-height: 15px;
+  width: 85%;
+  display: inline-block;
+  color: grey;
+  font-size: 10px;
+} */

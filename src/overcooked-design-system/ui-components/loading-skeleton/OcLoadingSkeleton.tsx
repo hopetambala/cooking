@@ -1,12 +1,9 @@
 import { FC } from "react";
-import styles from "./AdLoadingSkeleton.module.css";
-import { randomUUID } from "crypto";
+import styles from "./OcLoadingSkeleton.module.css";
 
-const AdLoadingSkeleton: FC<{}> = (props) => {
-  const id = `ad-loading-skeleton-${randomUUID()}`;
-
+const LoadingSkeleton: FC<{}> = (props) => {
   return (
-    <div id={id} {...props} className={styles.container}>
+    <div {...props} className={styles.container}>
       <div className={styles.innerContainer}>
         <div className={styles.circle}></div>
         <div className={styles.textContainer}>
@@ -18,4 +15,4 @@ const AdLoadingSkeleton: FC<{}> = (props) => {
   );
 };
 
-export default AdLoadingSkeleton;
+export default LoadingSkeleton;
