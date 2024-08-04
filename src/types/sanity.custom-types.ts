@@ -1,10 +1,11 @@
-import { PortableTextBlock } from "sanity";
+import { PortableTextBlock, Slug } from "sanity";
+// import { Recipe } from "../../sanity.types";
 
 export type RecipeType = {
   _id: string;
-  slug: string;
+  slug?: Slug
   textTitleForRecipeName: string;
-  textForRecipeTagline:string;
+  textForRecipeTagline: string;
   imageForLandingRecipe: {
     alt: string;
     image: string;
@@ -23,10 +24,7 @@ export type RecipeType = {
   };
   textForProcess: PortableTextBlock;
   //Ad goes in here
-  textFinishedProduct: {
-    alt: string;
-    image: string;
-  };
+  textFinishedProduct: PortableTextBlock;
   imageForFinishedProduct: {
     alt: string;
     image: string;

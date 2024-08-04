@@ -1,8 +1,5 @@
 import { defineField, Rule } from "sanity";
-import {
-  createBlockTextValidator,
-  createTextValidator,
-} from "./_validators";
+import { createBlockTextValidator, createTextValidator } from "./_validators";
 
 /**
  * The name key is the property that is used to reference a schema in the query language.
@@ -50,6 +47,15 @@ const recipe = {
             `A tagline shouldn't be more than 40 characters or 3-5 words. Aim for 30-40 characters.`
           ),
       ],
+    }),
+    defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      description:
+        "Add a custom slug for the URL (or leave it to be auto-generated) ",
+      options: { source: "textTitleForRecipeName" },
+      validation: (rule) => rule.required(),
     }),
     {
       name: "imageForLandingRecipe",

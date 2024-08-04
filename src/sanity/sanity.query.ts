@@ -9,6 +9,7 @@ export async function getAllRecipePreviews() {
   return client.fetch(
     groq`*[_type == "recipe"]{
       _id,
+      slug,
       textTitleForRecipeName,
       textForRecipeTagline,
       imageForLandingRecipe {alt, "image": asset->url},
@@ -26,6 +27,7 @@ export async function getSingleRecipeDetails(slug: string) {
   return client.fetch(
     groq`*[_type == "recipe" && slug.current == $slug][0]{
       _id,
+      slug,
       textTitleForRecipeName,
       textForRecipeTagline,
       imageForLandingRecipe {alt, "image": asset->url},

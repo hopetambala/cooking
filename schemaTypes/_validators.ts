@@ -1,7 +1,5 @@
 import type {
-  ArrayRule,
   PortableTextBlock,
-  PortableTextSpan,
   Rule,
   StringRule,
 } from "sanity";
