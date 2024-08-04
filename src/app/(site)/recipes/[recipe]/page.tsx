@@ -5,6 +5,8 @@ import type { RecipeType } from "@/types/sanity.custom-types";
 import type { Metadata } from "next";
 import { generateRandomFallbackImage } from "@/utils/testing-helpers";
 import { AdBanner, AdSlot } from "@/overcooked-design-system/ad-components";
+import styles from "./page.module.css";
+import OcImageComponent from "@/overcooked-design-system/ui-components/image/OcImageComponent";
 
 type Params = {
   params: {
@@ -37,7 +39,7 @@ export default async function Recipe({ params }: Params) {
   const recipe: RecipeType = await getSingleRecipeDetails(slug);
   const {
     textTitleForRecipeName,
-    // textForRecipeTagline,
+    textForRecipeTagline,
     textForIntroduction,
     imageForLandingRecipe,
     imageForIngredients,
@@ -48,15 +50,19 @@ export default async function Recipe({ params }: Params) {
     textFinishedProduct,
   } = recipe;
 
+  const clxName = [
+    styles["recipe-page__content"],
+    "class-comp-section-content-spacing-desktop",
+  ].join(" ");
   return (
-    <div>
-      <main>
+    <div className={clxName}>
+      <main className={styles["recipe-page__content__main"]}>
         <h1>{textTitleForRecipeName}</h1>
-        <Image
-          width={760}
+        <OcImageComponent
           height={1140}
+          width={760}
           src={imageForLandingRecipe?.image || generateRandomFallbackImage()}
-          alt={imageForLandingRecipe?.alt || textTitleForRecipeName}
+          alt={imageForLandingRecipe?.alt || textForRecipeTagline || ""}
         />
         <PortableText value={textForIntroduction} />
         <AdSlot name="Desktop In-Content 1" type="in-content">
@@ -102,16 +108,18 @@ export default async function Recipe({ params }: Params) {
           </div>
         </div>
       </main>
-      <aside>
+      <aside className={styles["recipe-page__content__aside"]}>
         <div>Search box for recipes</div>
         <div id="meet-the-chef">
           <h3>Meet the Chef</h3>
-          <Image
-            width={252}
-            height={252}
-            src={generateRandomFallbackImage()}
-            alt={imageForFinishedProduct?.alt || ""}
-          />
+          <div>
+            <Image
+              width={252}
+              height={252}
+              src={generateRandomFallbackImage()}
+              alt={imageForFinishedProduct?.alt || ""}
+            />
+          </div>
           <p>
             I’m Tieghan, the recipes you’ll find here are inspired by the people
             and places I love most. I try to live simply, eat seasonally, and

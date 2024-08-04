@@ -19,7 +19,7 @@ const AdSlot = ({
   ...props
 }: AdSlotProps) => {
   const id = `ad-slot-${randomUUID()}`;
-  const classes = [styles[`ad-slot--${type}`], styles["ad-slot"]];
+  const classes = [styles[`ad-slot__${type}`], styles["ad-slot"]];
   const clxName = classes.join(" ");
   console.info("AdSlot", { name, id, clxName, type });
   return (
