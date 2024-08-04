@@ -1,0 +1,45 @@
+.group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.group > * {
+  flex: 1;
+}
+.spacingextrasmall >* {
+  margin: var(--oc-prim-spacing-xs);
+}
+
+.spacingsmall > * {
+  margin: var(--oc-prim-spacing-s);
+}
+
+.spacingmedium > * {
+  margin: var(--oc-prim-spacing-m);
+}
+
+.spacinglarge > * {
+  margin: var(--oc-prim-spacing-l);
+}
+
+.spacingextralarge > * {
+  margin: var(--oc-prim-spacing-xl);
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+.center {
+  justify-content: center;
+}
+
+@media only screen and (max-width: 900px) {
+  .group {
+    column-gap: 0;
+  }
+}

@@ -1,0 +1,48 @@
+/**
+* @name class-sem-spacing-max-width-mobile
+* @description Max width for an area on mobile 
+    Using a breakpoint up from a normal mobile (Tablet)
+*/
+.class-sem-spacing-max-width-mobile {
+    max-width: var(--oc-sem-breakpoint-tablet);
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+/**
+* @name class-sem-spacing-max-width-desktop
+* @description Max width for an area on desktop 
+    Using a breakpoint up from a normal desktop (Large Desktop)
+*/
+.class-sem-spacing-max-width-desktop {
+    max-width: var(--oc-sem-breakpoint-large-desktop);
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+
+.class-comp-section-spacing-desktop {
+    padding-top: var(--oc-prim-spacing-m);
+    padding-bottom: var(--oc-prim-spacing-m);
+}
+
+.class-comp-section-content-spacing-desktop {
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin: 0 auto;
+    /* padding-left: var(--oc-prim-spacing-xxl);
+    padding-right: var(--oc-prim-spacing-xxl); */
+
+    max-width: var(--oc-sem-breakpoint-large-desktop);
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.class-comp-section-content-spacing-mobile {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--oc-prim-spacing-l);
+    padding-right: var(--oc-prim-spacing-l);
+}

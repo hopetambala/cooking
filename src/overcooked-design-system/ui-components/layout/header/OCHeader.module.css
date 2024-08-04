@@ -1,0 +1,20 @@
+.oc-header__container {
+  /** 
+    Layout
+  */
+  /* background: $white; */
+  position: relative;
+  min-height: 49px;
+}
+
+.oc-header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  /* border-bottom: 2px solid $border-color; */
+}
+
+.oc-header__title{
+  width: 100%;
+}

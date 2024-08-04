@@ -1,0 +1,42 @@
+.oc-nav__container {
+  /* Layout */
+  /* background: $white; */
+  /* position: relative;
+  min-height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column-reverse nowrap; */
+  display: flex;
+  flex-flow: column-reverse nowrap;
+}
+
+.oc-nav {
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  display: flex;
+  justify-content: flex-end;
+  /* border-bottom: 2px solid $border-color; */
+}
+
+.oc-nav__menu {
+  display: inline-block;
+  width: auto;
+  /* Don't want elements to collapes */
+  /* border-bottom: 2px solid $border-color; */
+}
+
+.oc-nav ul {
+  clear: both;
+  line-height: 1;
+  padding: 0;
+  width: 100%;
+}
+
+.oc-nav__menu__item {
+  /* float: left; */
+  list-style: none;
+  position: relative;
+  letter-spacing: .035em;
+}

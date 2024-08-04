@@ -1,0 +1,45 @@
+:root {
+    /* Font Weights */
+    --oc-typography-prim-font-weight-light: 300;
+    --oc-typography-prim-font-weight-regular: 400;
+    --oc-typography-prim-font-weight-medium: 500;
+    --oc-typography-prim-font-weight-semibold: 600;
+    --oc-typography-prim-font-weight-bold: 700;
+
+    /* Font Sizes */
+    --oc-typography-prim-font-size-h1: 2.25rem;
+    --oc-typography-prim-font-size-h2: 1.875rem;
+    --oc-typography-prim-font-size-h3: 1.5rem;
+    --oc-typography-prim-font-size-h4: 1.25rem;
+    --oc-typography-prim-font-size-h5: 1rem;
+    --oc-typography-prim-font-size-h6: 0.875rem;
+    --oc-typography-prim-font-size-body: 1rem;
+    --oc-typography-prim-font-size-small: 0.875rem;
+
+    /* Line Heights */
+    --oc-typography-prim-line-height-h1: 1.3;
+    --oc-typography-prim-line-height-h2: 1.3;
+    --oc-typography-prim-line-height-h3: 1.4;
+    --oc-typography-prim-line-height-h4: 1.4;
+    --oc-typography-prim-line-height-h5: 1.5;
+    --oc-typography-prim-line-height-h6: 1.5;
+    --oc-typography-prim-line-height-body: 1.6;
+    --oc-typography-prim-line-height-small: 1.6;
+
+    /* Semantic Typography Tokens */
+    --oc-typography-sem-heading-h1-font-weight: var(--oc-typography-prim-font-weight-bold);
+    --oc-typography-sem-heading-h1-font-size: var(--oc-typography-prim-font-size-h1);
+    --oc-typography-sem-heading-h1-line-height: var(--oc-typography-prim-line-height-h1);
+
+    --oc-typography-sem-heading-h2-font-weight: var(--oc-typography-prim-font-weight-semibold);
+    --oc-typography-sem-heading-h2-font-size: var(--oc-typography-prim-font-size-h2);
+    --oc-typography-sem-heading-h2-line-height: var(--oc-typography-prim-line-height-h2);
+
+    --oc-typography-sem-heading-h3-font-weight: var(--oc-typography-prim-font-weight-semibold);
+    --oc-typography-sem-heading-h3-font-size: var(--oc-typography-prim-font-size-h3);
+    --oc-typography-sem-heading-h3-line-height: var(--oc-typography-prim-line-height-h3);
+
+    --oc-typography-sem-body-font-weight: var(--oc-typography-prim-font-weight-regular);
+    --oc-typography-sem-body-font-size: var(--oc-typography-prim-font-size-body);
+    --oc-typography-sem-body-line-height: var(--oc-typography-prim-line-height-body);
+}

@@ -1,0 +1,24 @@
+:root {
+    /** Primative Breakpoint tokens */
+    --oc-prim-breakpoint-xs: 320px;
+    --oc-prim-breakpoint-sm: 576px;
+    --oc-prim-breakpoint-md: 768px;
+    --oc-prim-breakpoint-lg: 992px;
+    --oc-prim-breakpoint-xl: 1200px;
+    --oc-prim-breakpoint-xxl: 1400px;
+
+    /* Semantic Breakpoint Tokens */
+    --oc-sem-breakpoint-mobile: var(--oc-prim-breakpoint-xs);
+    --oc-sem-breakpoint-tablet: var(--oc-prim-breakpoint-sm);
+    --oc-sem-breakpoint-laptop: var(--oc-prim-breakpoint-md);
+    --oc-sem-breakpoint-desktop: var(--oc-prim-breakpoint-lg);
+    --oc-sem-breakpoint-large-desktop: var(--oc-prim-breakpoint-xl);
+
+    /** Primative Spacing tokens */
+    --oc-prim-spacing-xs: 4px;
+    --oc-prim-spacing-s: 8px;
+    --oc-prim-spacing-m: 16px;
+    --oc-prim-spacing-l: 32px;
+    --oc-prim-spacing-xl: 64px;
+    --oc-prim-spacing-xxl: 128px;
+}

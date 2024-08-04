@@ -1,0 +1,85 @@
+@import "reset.css";
+@import 'utilities.css';
+@import 'variables-typography.css';
+@import 'variables-colors.css';
+@import 'variables-layout.css';
+
+
+html,
+body {
+    padding: 0;
+    letter-spacing: 0;
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* overflow-x: hidden; */
+    /* font-family: var(--font-family);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    background-color: var(--color-bg);
+    color: var(--color-text); */
+    margin: 0;
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    font-weight: var(--oc-typography-sem-heading-h1-font-weight);
+    font-size: var(--oc-typography-sem-heading-h1-font-size);
+    line-height: var(--oc-typography-sem-heading-h1-line-height);
+}
+
+h2 {
+    font-weight: var(--oc-typography-sem-heading-h2-font-weight);
+    font-size: var(--oc-typography-sem-heading-h2-font-size);
+    line-height: var(--oc-typography-sem-heading-h2-line-height);
+}
+
+h3 {
+    font-weight: var(--oc-typography-sem-heading-h3-font-weight);
+    font-size: var(--oc-typography-sem-heading-h3-font-size);
+    line-height: var(--oc-typography-sem-heading-h3-line-height);
+}
+
+h4 {
+    font-weight: var(--oc-typography-sem-heading-h4-font-weight);
+    font-size: var(--oc-typography-sem-heading-h4-font-size);
+    line-height: var(--oc-typography-sem-heading-h4-line-height);
+}
+
+h5 {
+    font-weight: var(--oc-typography-sem-heading-h5-font-weight);
+    font-size: var(--oc-typography-sem-heading-h5-font-size);
+    line-height: var(--oc-typography-sem-heading-h5-line-height);
+}
+
+h6 {
+    font-weight: var(--oc-typography-sem-heading-h6-font-weight);
+    font-size: var(--oc-typography-sem-heading-h6-font-size);
+    line-height: var(--oc-typography-sem-heading-h6-line-height);
+}
+
+small {
+    font-size: var(--oc-typography-prim-font-size-small);
+    line-height: var(--oc-typography-prim-line-height-small);
+}
+
+a {
+    color: var(--oc-sem-color-text-link);;
+    cursor: pointer;
+    border: none;
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    padding: 13px 14px;
+    position: relative;
+    text-decoration: none;
+}
