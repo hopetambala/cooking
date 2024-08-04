@@ -51,10 +51,10 @@ export default async function Home() {
       <OcSection title="Recipes">
         <OcGrid>
           {recipes.map((data) => (
-            <PreviewCard data={data} />
+            <PreviewCard key={data._id} data={data} />
           ))}
           {recipes.map((data) => (
-            <PreviewCard data={data} />
+            <PreviewCard key={data._id} data={data} />
           ))}
         </OcGrid>
       </OcSection>
@@ -67,10 +67,10 @@ export default async function Home() {
       <OcSection title="Recipe Round-Ups" isAltBG>
         <OcGrid>
           {recipes.map((data) => (
-            <PreviewCard data={data} />
+            <PreviewCard key={data._id} data={data} />
           ))}
           {recipes.map((data) => (
-            <PreviewCard data={data} />
+            <PreviewCard key={data._id} data={data} />
           ))}
         </OcGrid>
       </OcSection>

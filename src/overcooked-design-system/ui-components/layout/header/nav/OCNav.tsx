@@ -1,4 +1,5 @@
 import styles from "./OCNav.module.css";
+import { randomUUID } from "crypto";
 export type SubNavItem = {
   text: string;
   url: string;
@@ -13,7 +14,7 @@ export const OCNav = ({ items }: SubNavItemProps) => {
       <div className={styles["oc-nav"]}>
         <ul id="secondary-menu" className={styles["oc-nav__menu"]}>
           {items.map((item) => (
-            <li className={styles["oc-nav__menu__item"]}>
+            <li key={randomUUID()} className={styles["oc-nav__menu__item"]}>
               <a href={item.url}>{item.text}</a>
             </li>
           ))}
