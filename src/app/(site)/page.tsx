@@ -22,7 +22,6 @@ const PreviewCard = ({ data }: PreviewCardProps) => {
           height={750}
           width={500}
           src={
-            // imageForLandingRecipe?.asset?.toString() ||
             `/fallback/fallback${Math.floor(Math.random() * 10) + 1}.jpg`
           }
           alt={imageForLandingRecipe?.alt || textForRecipeTagline || ""}

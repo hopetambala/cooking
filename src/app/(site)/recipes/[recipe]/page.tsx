@@ -68,11 +68,11 @@ export default async function Recipe({ params }: Params) {
         <AdSlot name="Desktop In-Content 1" type="in-content">
           <AdBanner dataAdSlotId="5492208947" type="display" />
         </AdSlot>
-        <Image
-          width={760}
+        <OcImageComponent
           height={1140}
-          src={generateRandomFallbackImage()}
-          alt={imageForIngredients?.alt || ""}
+          width={760}
+          src={imageForIngredients?.image || generateRandomFallbackImage()}
+          alt={imageForIngredients?.alt || textForRecipeTagline || ""}
         />
         <AdSlot name="Desktop In-Content 2" type="in-content">
           <AdBanner dataAdSlotId="5492208947" type="display" />
@@ -81,21 +81,21 @@ export default async function Recipe({ params }: Params) {
         <AdSlot name="Desktop In-Content 3" type="in-content">
           <AdBanner dataAdSlotId="5492208947" type="display" />
         </AdSlot>
-        <Image
-          width={760}
+        <OcImageComponent
           height={1140}
-          src={generateRandomFallbackImage()}
-          alt={imageOfProcess?.alt || ""}
+          width={760}
+          src={imageOfProcess?.image || generateRandomFallbackImage()}
+          alt={imageOfProcess?.alt || textForRecipeTagline || ""}
         />
         <PortableText value={textForProcess} />
         <AdSlot name="Desktop In-Article 4" type="in-content">
           <AdBanner dataAdSlotId="8196230071" type="in-article" />
         </AdSlot>
-        <Image
-          width={760}
+        <OcImageComponent
           height={1140}
-          src={generateRandomFallbackImage()}
-          alt={imageForFinishedProduct?.alt || ""}
+          width={760}
+          src={imageForFinishedProduct?.image || generateRandomFallbackImage()}
+          alt={imageForFinishedProduct?.alt || textForRecipeTagline || ""}
         />
         <PortableText value={textFinishedProduct} />
         <div id="step-by-step-process">
@@ -112,14 +112,12 @@ export default async function Recipe({ params }: Params) {
         <div>Search box for recipes</div>
         <div id="meet-the-chef">
           <h3>Meet the Chef</h3>
-          <div>
-            <Image
-              width={252}
-              height={252}
-              src={generateRandomFallbackImage()}
-              alt={imageForFinishedProduct?.alt || ""}
-            />
-          </div>
+          <OcImageComponent
+            height={252}
+            width={252}
+            src={generateRandomFallbackImage()}
+            alt={"Meet the Chef"}
+          />
           <p>
             I’m Tieghan, the recipes you’ll find here are inspired by the people
             and places I love most. I try to live simply, eat seasonally, and
