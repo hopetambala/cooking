@@ -45,9 +45,6 @@ export default async function Home() {
           {recipes.map((data) => (
             <PreviewCard key={data._id} data={data} />
           ))}
-          {recipes.map((data) => (
-            <PreviewCard key={data._id} data={data} />
-          ))}
         </OcGrid>
       </OcSection>
       <OcSection title="Recipe of the Month">
