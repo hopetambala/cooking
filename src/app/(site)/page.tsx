@@ -39,7 +39,7 @@ export default async function Home() {
   }
 
   return (
-    <main className={styles.main}>
+    <main>
       <OcSection title="Recipes">
         <OcGrid>
           {recipes.map((data) => (
