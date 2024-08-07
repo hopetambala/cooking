@@ -1,13 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;700;900&display=swap");
 
 .header {
-    max-width: 1200px;
+    max-width: 600px;
     margin: 0 auto;
-    padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* height: calc(100vh - 4rem); */
 }
 
 .title-wrapper {
@@ -22,9 +20,9 @@
     text-align: center;
     display: block;
     color: #fff;
-    font-size: clamp(1rem, 4vw, 1.5rem);
-    margin-bottom: 1rem;
-    padding-right: 2rem;
+    font-size: clamp(0.5rem, 2vw, 0.75rem);
+    margin-bottom: 0.5rem;
+    padding-right: 1rem;
 }
 
 .bottom-title {
@@ -32,9 +30,9 @@
     text-align: center;
     display: block;
     color: #fff;
-    font-size: clamp(1rem, 4vw, 1.5rem);
-    margin-top: 2rem;
-    padding-left: 2rem;
+    font-size: clamp(0.5rem, 2vw, 0.75rem);
+    margin-top: 1rem;
+    padding-left: 1rem;
 }
 
 .sweet-title {
@@ -42,14 +40,14 @@
     color: #fde9ff;
     font-weight: 900;
     text-transform: uppercase;
-    font-size: clamp(3rem, 10vw, 6rem);
+    font-size: clamp(1.5rem, 5vw, 3rem);
     line-height: 0.75em;
     text-align: center;
-    text-shadow: 3px 1px 1px #4af7ff, 2px 2px 1px #165bfb, 4px 2px 1px #4af7ff,
-        3px 3px 1px #165bfb, 5px 3px 1px #4af7ff, 4px 4px 1px #165bfb,
-        6px 4px 1px #4af7ff, 5px 5px 1px #165bfb, 7px 5px 1px #4af7ff,
-        6px 6px 1px #165bfb, 8px 6px 1px #4af7ff, 7px 7px 1px #165bfb,
-        9px 7px 1px #4af7ff;
+    text-shadow: 1.5px 0.5px 0.5px #4af7ff, 1px 1px 0.5px #165bfb, 2px 1px 0.5px #4af7ff,
+        1.5px 1.5px 0.5px #165bfb, 2.5px 1.5px 0.5px #4af7ff, 2px 2px 0.5px #165bfb,
+        3px 2px 0.5px #4af7ff, 2.5px 2.5px 0.5px #165bfb, 3.5px 2.5px 0.5px #4af7ff,
+        3px 3px 0.5px #165bfb, 4px 3px 0.5px #4af7ff, 3.5px 3.5px 0.5px #165bfb,
+        4.5px 3.5px 0.5px #4af7ff;
 }
 
 .sweet-title span {
@@ -60,15 +58,15 @@
 .sweet-title span:before {
     content: attr(data-text);
     position: absolute;
-    text-shadow: 2px 2px 1px #e94aa1, -1px -1px 1px #c736f9,
-        -2px 2px 1px #e94aa1, 1px -1px 1px #f736f9;
+    text-shadow: 1px 1px 0.5px #e94aa1, -0.5px -0.5px 0.5px #c736f9,
+        -1px 1px 0.5px #e94aa1, 0.5px -0.5px 0.5px #f736f9;
     z-index: 1;
 }
 
 .sweet-title span:nth-child(1) {
-    padding-right: 2.25rem;
+    padding-right: 1.125rem;
 }
 
 .sweet-title span:nth-child(2) {
-    padding-left: 2.25rem;
+    padding-left: 1.125rem;
 }
