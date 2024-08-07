@@ -6,7 +6,14 @@
   /* height: auto; */
 }
 
+.recipe-page__content__main {
+  flex: 3;
+}
+.recipe-page__content__aside {
+  flex: 1;
+}
 
+/** Mobile */
 @media (max-width: 992px) {
   .recipe-page__content {
     flex-direction: column;

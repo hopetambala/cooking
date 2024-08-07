@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.oc-header > * {
+.oc-header>* {
   padding: var(--oc-prim-spacing-m);
 }
 
@@ -19,6 +19,19 @@
   align-items: center;
   justify-content: center;
 }
-.oc-header__title{
+
+.oc-header__title {
   width: 100%;
+}
+
+/* Mobile */
+@media (max-width: 992px) {
+  .oc-header {
+    flex-flow: row;
+    flex-wrap: wrap;
+  }
+
+  .oc-header>* {
+    padding: var(--oc-prim-spacing-xs);
+  }
 }

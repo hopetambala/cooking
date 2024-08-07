@@ -38,12 +38,12 @@ export const Section = ({
 
   const { section, content } = retrieveTokenClasses(false);
   const altBg = isAltBG ? `altBg ${styles.altBG}` : "";
-  const classNames = [`section ${section} ${altBg}`];
+  const classNames = [`section ${section} ${altBg} `];
   if (className) classNames.push(className);
 
   return (
     <section id={id} className={classNames.join(" ")}>
-      <div className={`content ${content}`}>
+      <div className={`content ${content} ${styles.content}`}>
         {!isNoTitle && <h2>{title}</h2>}
         {children}
       </div>
