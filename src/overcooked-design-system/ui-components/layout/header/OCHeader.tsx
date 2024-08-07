@@ -1,6 +1,7 @@
 // import Image from "next/image";
 // import Logo from "@/overcooked-design-system/_icons/logo.png";
 
+import { Logo } from "../../logo/Logo";
 import styles from "./OCHeader.module.css";
 import { OCNav } from "./nav/OCNav";
 import type { SubNavItem } from "./nav/OCNav";
@@ -20,7 +21,9 @@ export default function Header({navPrimary, navSecondary}: HeaderProps) {
           <OCNav items={navPrimary} />
           <div className={styles["oc-header__title__container"]}>
             <h1 className={styles["oc-header__title"]}>
-              <a href="/">En La Cocina</a>
+              <a href="/">
+                <Logo />
+              </a>
             </h1>
           </div>
           {/**Only shows up Mobile */}

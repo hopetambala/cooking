@@ -1,6 +1,6 @@
-import styles from './OcFooter.module.css';
+import styles from './Footer.module.css';
 
-export default function OcFooter() {
+export default function Footer() {
   return (
     <footer className={styles["oc-footer__container"]}>
       <div>
