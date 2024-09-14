@@ -288,4 +288,48 @@ const recipe = {
   ],
 };
 
-export { recipe, ingredient };
+const recipeOftheMonth = {
+  name: "recipeOftheMonth",
+  title: "Recipe of the Month",
+  type: "document",
+  fields: [
+    defineField({
+      name: "recipeOfMonthTitle",
+      title: "Recipe of the Month Title",
+      type: "string",
+      validation: (rule) => createTextValidator(rule, 30, 50),
+    }),
+    {
+      title: "Recipes",
+      name: "recipe",
+      validation: (rule: { required: () => any }) => [rule.required()],
+      type: "reference",
+      to: [{ type: "recipe" }],
+    },
+    {
+      name: "description",
+      title: "Description",
+      type: "array",
+      options: {
+        spellCheck: true,
+      },
+      description: `A descriptive blurb for the recipe of the month i.e. 
+
+        Easy overnight oats infused with the flavors of apple pie! 
+        Naturally sweetened, cinnamon-infused, and just 9 wholesome ingredients required. 
+        Perfect for fall and beyond!`,
+      of: [
+        {
+          type: "block",
+          styles: [
+            { title: "Normal", value: "normal" },
+            { title: "H2", value: "h2" },
+            { title: "H3", value: "h3" },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+export { recipe, ingredient, recipeOftheMonth };
