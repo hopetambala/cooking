@@ -1,5 +1,6 @@
-import recipe from "./recipe";
+import {recipe, ingredient} from "./recipe";
 
 export const schemaTypes = [
-    recipe
+    recipe,
+    ingredient
 ]
