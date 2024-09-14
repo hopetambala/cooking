@@ -1,9 +1,9 @@
-import { PortableTextBlock, Slug } from "sanity";
+import type { PortableTextBlock, Slug, ArraySchemaType } from "sanity";
 // import { Recipe } from "../../sanity.types";
 
 export type RecipeType = {
   _id: string;
-  slug?: Slug
+  slug?: Slug;
   textTitleForRecipeName: string;
   textForRecipeTagline: string;
   imageForLandingRecipe: {
@@ -30,4 +30,6 @@ export type RecipeType = {
     image: string;
   };
   //Ad goes in here
+  ingredients: ArraySchemaType;
+  instructions: PortableTextBlock;
 };

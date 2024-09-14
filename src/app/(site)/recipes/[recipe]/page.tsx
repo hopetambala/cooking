@@ -48,6 +48,8 @@ export default async function Recipe({ params }: Params) {
     textForProcess,
     imageForFinishedProduct,
     textFinishedProduct,
+    ingredients,
+    instructions
   } = recipe;
 
   const clxName = [
@@ -101,10 +103,13 @@ export default async function Recipe({ params }: Params) {
         <div id="step-by-step-process">
           <h2>{textTitleForRecipeName}</h2>
           <p>Prep time, cook, time, total time deets</p>
-          <div>Cool calculator for serving idea i had</div>
           <div>
             <h3>Ingredients</h3>
             Cool calculator for serving idea I had
+          </div>
+          <div>
+            <h3>Instructions</h3>
+            <PortableText value={instructions} />
           </div>
         </div>
       </main>

@@ -37,7 +37,9 @@ export async function getSingleRecipeDetails(slug: string) {
       imageOfProcess {alt, "image": asset->url},
       textForProcess,
       textFinishedProduct,
-      imageForFinishedProduct {alt, "image": asset->url}
+      imageForFinishedProduct {alt, "image": asset->url},
+      ingredients,
+      instructions
     }`,
     { slug }
   );
