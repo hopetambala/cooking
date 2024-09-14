@@ -15,6 +15,19 @@ import { createBlockTextValidator, createTextValidator } from "./_validators";
  * Here are the fields for the profile schema:
  */
 
+const ingredient = {
+  name: "ingredient",
+  title: "Ingredients and Service size",
+  description: "Add the ingredients and the amount required for the recipe",
+  type: "object",
+  fields: [
+    { name: "amount", type: "number", title: "Amount of ingredient" },
+    { name: "measurement", type: "string", title: "Measuring utensil size" },
+    { name: "name", type: "string", title: "Name of ingredient" },
+
+  ],
+};
+
 const recipe = {
   name: "recipe",
   title: "Recipe Page Template",
@@ -238,7 +251,30 @@ const recipe = {
         },
       ],
     },
+    {
+      name: "ingredients",
+      title: "Ingredients and Service size",
+      type: "array",
+      description: "Add the ingredients and the amount required for the recipe",
+      of: [{ type: "ingredient" }],
+    },
+    {
+      name: "instructions",
+      title: "Instructions",
+      type: "array",
+      description: `Add the instructions for the recipe.`,
+      of: [
+        {
+          type: "block",
+          styles: [
+            { title: "Normal", value: "normal" },
+            { title: "H2", value: "h2" },
+            { title: "H3", value: "h3" },
+          ],
+        },
+      ],
+    },
   ],
 };
 
-export default recipe;
+export { recipe, ingredient };
