@@ -6,4 +6,8 @@
     --oc-dimensions-prim-border-radius-size-lg: 16px;
     --oc-dimensions-prim-border-radius-size-xl: 24px;
     --oc-dimensions-prim-border-radius-size-full: 9999px;
+
+
+    /* Card widths */
+    --oc-dimensions-component-card-width-size-minimum: 280px;
 }

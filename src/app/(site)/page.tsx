@@ -1,10 +1,7 @@
 import { RecipeType } from "@/types/sanity.custom-types";
 import styles from "./page.module.css";
-import { OcLoadingSkeleton } from "@/overcooked-design-system/ui-components";
 import { getAllRecipePreviews } from "@/sanity/sanity.query";
-import { OCCard, OcGrid } from "@/overcooked-design-system/ui-components";
-import OcImageComponent from "@/overcooked-design-system/ui-components/image/OcImageComponent";
-import { OcSection } from "@/overcooked-design-system/ui-components";
+import { OcSection, OCCard, OcFlexGrid, OcLoadingSkeleton, OCImage as OcImageComponent } from "@/overcooked-design-system/ui-components";
 import { imgDim } from "@/utils/general";
 
 interface PreviewCardProps {
@@ -66,13 +63,13 @@ export default async function Home() {
   }
 
   return (
-    <main>
+    <main className={styles.main}>
       <OcSection title="New Recipes">
-        <OcGrid>
+        <OcFlexGrid>
           {recipes.map((data) => (
             <PreviewCard key={data._id} data={data} />
           ))}
-        </OcGrid>
+        </OcFlexGrid>
       </OcSection>
       <OcSection isNoTitle title="Recipe of the Month">
         <div className={styles.home__recipe_of_month__container}>
@@ -106,12 +103,15 @@ export default async function Home() {
         </div>
         {/* <div>Ad - Sticky</div> */}
       </OcSection>
-      <OcSection title="Explore" isAltBG>
-        <OcGrid>
+      <OcSection title="Explore All Recipes" isAltBG>
+        <OcFlexGrid className={styles.home__explore__recipes__card__container}>
           {recipes.map((data) => (
             <PreviewCard key={data._id} data={data} />
           ))}
-        </OcGrid>
+          {recipes.map((data) => (
+            <PreviewCard key={data._id} data={data} />
+          ))}
+        </OcFlexGrid>
       </OcSection>
     </main>
   );

@@ -3,15 +3,16 @@ import styles from "./OcGrid.module.css";
 
 interface OcGridProps {
   children?: React.ReactNode;
-  position?: "left" | "center" | "right";
-  spacing?: "extrasmall" |"small" | "medium" | "large" | "extralarge";
+  columnGapSpacing?: "none" | "s" | "m" | "l";
   className?: string;
 }
-const OcGrid = ({ children, position, spacing, className }: OcGridProps) => {
-  const classNames = [`group ${styles.group}`];
-  if (position) classNames.push(`${position} ${styles[position]}`);
-  if (spacing)
-    classNames.push(`spacing${spacing} ${styles[`spacing${spacing}`]}`);
+const OcGrid = ({ children, columnGapSpacing, className }: OcGridProps) => {
+  const classNames = [`grid ${styles.grid}`];
+
+  if (columnGapSpacing)
+    classNames.push(
+      `column_gap_spacing--${columnGapSpacing} ${styles[`grid-column-gap-${columnGapSpacing}`]}`
+    );
   if (className) classNames.push(className);
   return <div className={classNames.join(" ")}>{children}</div>;
 };

@@ -11,7 +11,7 @@ const recipeMenuItems: SubNavItem[] = [
   {
     text: "All Recipes",
     // url: "/recipes", for now
-    url: "/",
+    url: "/#exploreallrecipes",
   },
   // {
   //   text: "Healthy Recipes",
