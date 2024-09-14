@@ -9,8 +9,15 @@
 .recipe-page__content__main {
   flex: 3;
 }
+
 .recipe-page__content__aside {
   flex: 1;
+}
+
+.recipe-page__content__aside__chef {
+  padding: var(--oc-prim-spacing-m) var(--oc-prim-spacing-l);
+  background-color: var(--oc-sem-color-brand-yellow);
+  border-radius: var(--oc-dimensions-prim-border-radius-size-md);
 }
 
 /** Mobile */

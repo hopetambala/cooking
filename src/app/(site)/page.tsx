@@ -47,10 +47,30 @@ export default async function Home() {
           ))}
         </OcGrid>
       </OcSection>
-      <OcSection title="Recipe of the Month">
-        <OcLoadingSkeleton />
+      <OcSection isNoTitle title="Recipe of the Month">
+        {/* <OcLoadingSkeleton /> */}
+        <div className={styles.home__recipe_of_month__container}>
+          <div className={styles.home__recipe_of_month__text__container}>
+            <h4>Recipe of the Month</h4>
+            <h3>Recipe title</h3>
+            <p>
+              Easy overnight oats infused with the flavors of apple pie!
+              Naturally sweetened, cinnamon-infused, and just 9 wholesome
+              ingredients required. Perfect for fall and beyond!
+            </p>
+            <button>View Recipe</button>
+          </div>
+          <div className={styles.home__recipe_of_month__image__container}>
+            <OcImageComponent
+              height={1000}
+              width={1000}
+              src={`/fallback/fallback${Math.floor(Math.random() * 10) + 1}.jpg`}
+              alt={"Recipe of the Month"}
+            />
+          </div>
+        </div>
       </OcSection>
-      <OcSection title="Fan Favorites">
+      <OcSection isAltBG title="Fan Favorites">
         <div>
           <div>Recipe 1</div>
           <div>Recipe 3</div>

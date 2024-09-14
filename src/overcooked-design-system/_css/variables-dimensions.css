@@ -1,0 +1,9 @@
+:root {
+    /* Border Radius */
+    --oc-dimensions-prim-border-radius-size-xs: 4px;
+    --oc-dimensions-prim-border-radius-size-sm: 8px;
+    --oc-dimensions-prim-border-radius-size-md: 12px;
+    --oc-dimensions-prim-border-radius-size-lg: 16px;
+    --oc-dimensions-prim-border-radius-size-xl: 24px;
+    --oc-dimensions-prim-border-radius-size-full: 9999px;
+}

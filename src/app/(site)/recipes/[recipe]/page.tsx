@@ -109,8 +109,11 @@ export default async function Recipe({ params }: Params) {
         </div>
       </main>
       <aside className={styles["recipe-page__content__aside"]}>
-        <div>Search box for recipes</div>
-        <div id="meet-the-chef">
+        {/* <div>Search box for recipes</div> */}
+        <div
+          id="meet-the-chef"
+          className={styles["recipe-page__content__aside__chef"]}
+        >
           <h3>Meet the Chef</h3>
           <OcImageComponent
             height={252}
@@ -129,7 +132,7 @@ export default async function Recipe({ params }: Params) {
           <AdBanner dataAdSlotId="5492208947" type="display" />
         </AdSlot>
         <div id="Fan Favorites">
-          <h3>Related Recipes and fan favorites</h3>
+          <h3>Related recipes and fan favorites</h3>
           <div>Recipe 1</div>
           <div>Recipe 2</div>
           <div>Recipe 3</div>
