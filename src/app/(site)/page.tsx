@@ -5,12 +5,18 @@ import { getAllRecipePreviews } from "@/sanity/sanity.query";
 import { OCCard, OcGrid } from "@/overcooked-design-system/ui-components";
 import OcImageComponent from "@/overcooked-design-system/ui-components/image/OcImageComponent";
 import { OcSection } from "@/overcooked-design-system/ui-components";
+import { imgDim } from "@/utils/general";
 
 interface PreviewCardProps {
   data: RecipeType;
 }
 const PreviewCard = ({ data }: PreviewCardProps) => {
-  const { slug, textTitleForRecipeName, textForRecipeTagline, imageForLandingRecipe } = data;
+  const {
+    slug,
+    textTitleForRecipeName,
+    textForRecipeTagline,
+    imageForLandingRecipe,
+  } = data;
   return (
     <OCCard
       headerText={textTitleForRecipeName || ""}
@@ -21,13 +27,34 @@ const PreviewCard = ({ data }: PreviewCardProps) => {
         <OcImageComponent
           height={750}
           width={500}
-          src={
-            `/fallback/fallback${Math.floor(Math.random() * 10) + 1}.jpg`
-          }
+          src={`/fallback/fallback${Math.floor(Math.random() * 10) + 1}.jpg`}
           alt={imageForLandingRecipe?.alt || textForRecipeTagline || ""}
         />
       </div>
     </OCCard>
+  );
+};
+
+const FavoriteCard = ({ data }: PreviewCardProps) => {
+  const {
+    slug,
+    textTitleForRecipeName,
+    textForRecipeTagline,
+    imageForLandingRecipe,
+  } = data;
+  return (
+    <div className={styles.home__favorite__card__container}>
+      <OcImageComponent
+        height={imgDim(0.1)[0]}
+        width={imgDim(0.5)[1]}
+        src={`/fallback/fallback${Math.floor(Math.random() * 10) + 1}.jpg`}
+        alt={imageForLandingRecipe?.alt || textForRecipeTagline || ""}
+      />
+      <a href={`/recipes/${slug?.current}`}>
+        <h3>{textTitleForRecipeName}</h3>
+        <p>{textForRecipeTagline}</p>
+      </a>
+    </div>
   );
 };
 
@@ -40,7 +67,7 @@ export default async function Home() {
 
   return (
     <main>
-      <OcSection title="Recipes">
+      <OcSection title="New Recipes">
         <OcGrid>
           {recipes.map((data) => (
             <PreviewCard key={data._id} data={data} />
@@ -48,7 +75,6 @@ export default async function Home() {
         </OcGrid>
       </OcSection>
       <OcSection isNoTitle title="Recipe of the Month">
-        {/* <OcLoadingSkeleton /> */}
         <div className={styles.home__recipe_of_month__container}>
           <div className={styles.home__recipe_of_month__text__container}>
             <h4>Recipe of the Month</h4>
@@ -72,18 +98,16 @@ export default async function Home() {
       </OcSection>
       <OcSection isAltBG title="Fan Favorites">
         <div>
-          <div>Recipe 1</div>
-          <div>Recipe 3</div>
-          <div>Recipe 3</div>
-          <div>Cute Blurb</div>
+          {recipes.map((data) => {
+            if (!data.isFanFavorite) return null;
+            return <FavoriteCard key={data._id} data={data} />;
+          })}
+          {/* <div>Cute Blurb</div> */}
         </div>
-        <div>Ad - Sticky</div>
+        {/* <div>Ad - Sticky</div> */}
       </OcSection>
-      <OcSection title="Recipe Round-Ups" isAltBG>
+      <OcSection title="Explore" isAltBG>
         <OcGrid>
-          {recipes.map((data) => (
-            <PreviewCard key={data._id} data={data} />
-          ))}
           {recipes.map((data) => (
             <PreviewCard key={data._id} data={data} />
           ))}

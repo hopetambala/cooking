@@ -6,15 +6,21 @@ import client from "./sanity.client";
  * @returns {Promise<Array<RecipePreview>>} A promise that resolves to an array of recipe previews.
  */
 export async function getAllRecipePreviews() {
-  return client.fetch(
-    groq`*[_type == "recipe"]{
+  const query = groq`*[_type == "recipe"]{
       _id,
       slug,
+      isFanFavorite,
       textTitleForRecipeName,
       textForRecipeTagline,
       imageForLandingRecipe {alt, "image": asset->url},
-    }`
-  );
+    }`;
+  const params = {};
+  const next = {
+    revalidate: 100, // for simple, time-based revalidation
+  };
+  return client.fetch(query, params, {
+    next,
+  });
 }
 
 /**
@@ -24,8 +30,7 @@ export async function getAllRecipePreviews() {
  * @returns A promise that resolves to the details of the recipe.
  */
 export async function getSingleRecipeDetails(slug: string) {
-  return client.fetch(
-    groq`*[_type == "recipe" && slug.current == $slug][0]{
+  const query = groq`*[_type == "recipe" && slug.current == $slug][0]{
       _id,
       slug,
       textTitleForRecipeName,
@@ -40,9 +45,14 @@ export async function getSingleRecipeDetails(slug: string) {
       imageForFinishedProduct {alt, "image": asset->url},
       ingredients,
       instructions
-    }`,
-    { slug }
-  );
+    }`;
+  const params = { slug };
+  const next = {
+    revalidate: 100, // for simple, time-based revalidation
+  };
+  return client.fetch(query, params, {
+    next,
+  });
 }
 /**
 Two types of data fetches

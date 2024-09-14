@@ -11,6 +11,12 @@
   max-height: calc(420px * 1.25);
 }
 
+.home__favorite__card__container {
+  display: flex;
+  background-color: var(--oc-prim-color-white);
+  border-radius: var(--oc-dimensions-prim-border-radius-size-md);
+}
+
 .home__recipe_of_month__container {
   display: flex;
   flex-direction: row;
@@ -20,7 +26,7 @@
   overflow: hidden;
 }
 
-.home__recipe_of_month__container > * {
+.home__recipe_of_month__container>* {
   flex: 1;
 }
 

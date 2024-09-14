@@ -3,11 +3,15 @@
   flex-direction: row;
   justify-content: center;
   gap: var(--oc-prim-spacing-l);
-  /* height: auto; */
 }
 
 .recipe-page__content__main {
   flex: 3;
+  max-width: 768px;
+}
+
+.recipe-page__content__main > * {
+  margin: var(--oc-prim-spacing-m) 0;
 }
 
 .recipe-page__content__aside {

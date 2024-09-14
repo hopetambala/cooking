@@ -4,6 +4,7 @@ import type { PortableTextBlock, Slug, ArraySchemaType } from "sanity";
 export type RecipeType = {
   _id: string;
   slug?: Slug;
+  isFanFavorite: boolean;
   textTitleForRecipeName: string;
   textForRecipeTagline: string;
   imageForLandingRecipe: {

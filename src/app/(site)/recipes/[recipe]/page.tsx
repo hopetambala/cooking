@@ -7,6 +7,8 @@ import { generateRandomFallbackImage } from "@/utils/testing-helpers";
 import { AdBanner, AdSlot } from "@/overcooked-design-system/ad-components";
 import styles from "./page.module.css";
 import OcImageComponent from "@/overcooked-design-system/ui-components/image/OcImageComponent";
+import { OCButton } from "@/overcooked-design-system/ui-components";
+import { imgDim } from "@/utils/general";
 
 type Params = {
   params: {
@@ -49,20 +51,26 @@ export default async function Recipe({ params }: Params) {
     imageForFinishedProduct,
     textFinishedProduct,
     ingredients,
-    instructions
+    instructions,
   } = recipe;
 
   const clxName = [
     styles["recipe-page__content"],
     "class-comp-section-content-spacing-desktop",
   ].join(" ");
+
   return (
     <div className={clxName}>
       <main className={styles["recipe-page__content__main"]}>
         <h1>{textTitleForRecipeName}</h1>
+        <div>
+          <OCButton>
+            <a href="#step-by-step-process">Jump to recipe</a>
+          </OCButton>
+        </div>
         <OcImageComponent
-          height={1140}
-          width={760}
+          height={imgDim(1)[0]}
+          width={imgDim(1)[1]}
           src={imageForLandingRecipe?.image || generateRandomFallbackImage()}
           alt={imageForLandingRecipe?.alt || textForRecipeTagline || ""}
         />
@@ -71,8 +79,8 @@ export default async function Recipe({ params }: Params) {
           <AdBanner dataAdSlotId="5492208947" type="display" />
         </AdSlot>
         <OcImageComponent
-          height={1140}
-          width={760}
+          height={imgDim(1)[0]}
+          width={imgDim(1)[1]}
           src={imageForIngredients?.image || generateRandomFallbackImage()}
           alt={imageForIngredients?.alt || textForRecipeTagline || ""}
         />
@@ -84,8 +92,8 @@ export default async function Recipe({ params }: Params) {
           <AdBanner dataAdSlotId="5492208947" type="display" />
         </AdSlot>
         <OcImageComponent
-          height={1140}
-          width={760}
+          height={imgDim(1)[0]}
+          width={imgDim(1)[1]}
           src={imageOfProcess?.image || generateRandomFallbackImage()}
           alt={imageOfProcess?.alt || textForRecipeTagline || ""}
         />
@@ -94,8 +102,8 @@ export default async function Recipe({ params }: Params) {
           <AdBanner dataAdSlotId="8196230071" type="in-article" />
         </AdSlot>
         <OcImageComponent
-          height={1140}
-          width={760}
+          height={imgDim(1)[0]}
+          width={imgDim(1)[1]}
           src={imageForFinishedProduct?.image || generateRandomFallbackImage()}
           alt={imageForFinishedProduct?.alt || textForRecipeTagline || ""}
         />
@@ -105,7 +113,6 @@ export default async function Recipe({ params }: Params) {
           <p>Prep time, cook, time, total time deets</p>
           <div>
             <h3>Ingredients</h3>
-            Cool calculator for serving idea I had
           </div>
           <div>
             <h3>Instructions</h3>

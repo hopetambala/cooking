@@ -12,7 +12,8 @@
     "build-sanity": "sanity build",
     "deploy-sanity": "sanity deploy",
     "deploy-graphql-sanity": "sanity graphql deploy",
-    "typegen": "sanity schema extract && sanity typegen generate"
+    "typegen": "sanity schema extract && sanity typegen generate",
+    "rebuild": "rm -rf node_modules && yarn"
   },
   "dependencies": {
     "@sanity/vision": "^3.52.4",

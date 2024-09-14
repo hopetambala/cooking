@@ -24,7 +24,6 @@ const ingredient = {
     { name: "amount", type: "number", title: "Amount of ingredient" },
     { name: "measurement", type: "string", title: "Measuring utensil size" },
     { name: "name", type: "string", title: "Name of ingredient" },
-
   ],
 };
 
@@ -33,6 +32,12 @@ const recipe = {
   title: "Recipe Page Template",
   type: "document",
   fields: [
+    {
+      name: "isFanFavorite",
+      title: "Fan Favorite",
+      type: "boolean",
+      description: "Mark true if this is a fan favorite recipe",
+    },
     defineField({
       name: "textTitleForRecipeName",
       title: "Recipe Name",
