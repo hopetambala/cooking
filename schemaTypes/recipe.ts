@@ -38,6 +38,12 @@ const recipe = {
       type: "boolean",
       description: "Mark true if this is a fan favorite recipe",
     },
+    {
+      name: "publishedAtCustom",
+      title: "Published At",
+      type: "datetime",
+      description: "Manual override for the published date",
+    },
     defineField({
       name: "textTitleForRecipeName",
       title: "Recipe Name",

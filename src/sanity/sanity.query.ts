@@ -6,7 +6,7 @@ import client from "./sanity.client";
  * @returns {Promise<Array<RecipePreview>>} A promise that resolves to an array of recipe previews.
  */
 export async function getAllRecipePreviews() {
-  const query = groq`*[_type == "recipe"] | order(_createdAt desc) {
+  const query = groq`*[_type == "recipe"] | order(publishedAtCustom desc) {
       _id,
       slug,
       isFanFavorite,

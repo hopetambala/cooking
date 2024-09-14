@@ -41,7 +41,7 @@ const FavoriteCard = ({ data }: PreviewCardProps) => {
     imageForLandingRecipe,
   } = data;
   return (
-    <div className={styles.home__favorite__card__container}>
+    <div className={styles.home__favorite__recipes__card}>
       <OcImageComponent
         height={imgDim(0.1)[0]}
         width={imgDim(0.5)[1]}
@@ -95,7 +95,7 @@ export default async function Home() {
         </div>
       </OcSection>
       <OcSection isAltBG title="Fan Favorites">
-        <div>
+        <div className={styles.home__favorite__recipes__card__container}>
           {recipes.map((data) => {
             if (!data.isFanFavorite) return null;
             return <FavoriteCard key={data._id} data={data} />;
