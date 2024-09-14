@@ -5,6 +5,10 @@
   padding: var(--oc-prim-spacing-xl) 0;
 }
 
+.home__new__recipes__card__container > * {
+  min-width: var(--oc-dimensions-component-card-width-size-minimum);
+}
+
 .home__preview__card__image__container {
   overflow: hidden;
   max-width: calc(var(--oc-dimensions-component-card-width-size-minimum) * 1);
@@ -50,6 +54,7 @@
 
 .home__explore__recipes__card__container > * {
   min-width: var(--oc-dimensions-component-card-width-size-minimum);
+  max-width: var(--oc-dimensions-component-card-width-size-minimum);
 }
 
 /* Mobile */

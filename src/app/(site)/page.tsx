@@ -7,6 +7,7 @@ import { imgDim } from "@/utils/general";
 interface PreviewCardProps {
   data: RecipeType;
 }
+
 const PreviewCard = ({ data }: PreviewCardProps) => {
   const {
     slug,
@@ -65,8 +66,8 @@ export default async function Home() {
   return (
     <main className={styles.main}>
       <OcSection title="New Recipes">
-        <OcFlexGrid>
-          {recipes.map((data) => (
+        <OcFlexGrid className={styles.home__new__recipes__card__container}>
+          {recipes.slice(0, 3).map((data) => (
             <PreviewCard key={data._id} data={data} />
           ))}
         </OcFlexGrid>
@@ -105,9 +106,6 @@ export default async function Home() {
       </OcSection>
       <OcSection title="Explore All Recipes" isAltBG>
         <OcFlexGrid className={styles.home__explore__recipes__card__container}>
-          {recipes.map((data) => (
-            <PreviewCard key={data._id} data={data} />
-          ))}
           {recipes.map((data) => (
             <PreviewCard key={data._id} data={data} />
           ))}
