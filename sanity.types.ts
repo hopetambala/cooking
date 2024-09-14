@@ -68,6 +68,13 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Ingredient = {
+  _type: "ingredient";
+  amount?: number;
+  measurement?: string;
+  name?: string;
+};
+
 export type Recipe = {
   _id: string;
   _type: "recipe";
@@ -209,6 +216,27 @@ export type Recipe = {
     alt?: string;
     _type: "image";
   };
+  ingredients?: Array<{
+    _key: string;
+  } & Ingredient>;
+  instructions?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h2" | "h3";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
 };
 
 export type SanityImageCrop = {
@@ -274,5 +302,5 @@ export type Slug = {
   source?: string;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Recipe | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Ingredient | Recipe | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;
