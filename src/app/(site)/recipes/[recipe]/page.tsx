@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { getSingleRecipeDetails } from "@/sanity/sanity.query";
+import { getAllRecipePreviews, getSingleRecipeDetails } from "@/sanity/sanity.query";
 import { PortableText } from "@portabletext/react";
 import type { RecipeType } from "@/types/sanity.custom-types";
 import type { Metadata } from "next";
@@ -9,6 +8,7 @@ import styles from "./page.module.css";
 import OcImageComponent from "@/overcooked-design-system/ui-components/image/OcImageComponent";
 import { OCButton } from "@/overcooked-design-system/ui-components";
 import { imgDim } from "@/utils/general";
+import { FavoriteCard } from "@/overcooked-design-system/cooking-components";
 
 type Params = {
   params: {
@@ -38,6 +38,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function Recipe({ params }: Params) {
   const slug = params.recipe;
+  const recipes: RecipeType[] = await getAllRecipePreviews();
   const recipe: RecipeType = await getSingleRecipeDetails(slug);
   const {
     textTitleForRecipeName,
@@ -110,9 +111,7 @@ export default async function Recipe({ params }: Params) {
         <PortableText value={textFinishedProduct} />
         <div
           id="step-by-step-process"
-          className={
-            styles["recipe-page__content__main--step-by-step-process"]
-          }
+          className={styles["recipe-page__content__main--step-by-step-process"]}
         >
           <h2>{textTitleForRecipeName}</h2>
           {/* <p>Prep time, cook, time, total time deets</p> */}
@@ -155,10 +154,13 @@ export default async function Recipe({ params }: Params) {
         </AdSlot>
         <div id="Fan Favorites">
           <h3>Related recipes and fan favorites</h3>
-          <div>Recipe 1</div>
-          <div>Recipe 2</div>
-          <div>Recipe 3</div>
-          <button>View More</button>
+          {recipes.map((data) => {
+            if (!data.isFanFavorite) return null;
+            return <FavoriteCard variant="small" key={data._id} data={data} />;
+          })}
+          <OCButton>
+            <a href={`/#exploreallrecipes`}>Explore more recipes</a>
+          </OCButton>{" "}
         </div>
         <AdSlot name="Desktop Sidebar 7" type="sidebar--sticky">
           <AdBanner dataAdSlotId="5492208947" type="display" />

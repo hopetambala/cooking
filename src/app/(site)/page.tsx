@@ -10,7 +10,7 @@ import {
   OCImage as OcImageComponent,
   OCButton,
 } from "@/overcooked-design-system/ui-components";
-import { imgDim } from "@/utils/general";
+import { FavoriteCard } from "@/overcooked-design-system/cooking-components";
 
 interface PreviewCardProps {
   data: RecipeType;
@@ -45,28 +45,28 @@ const PreviewCard = ({ data }: PreviewCardProps) => {
   );
 };
 
-const FavoriteCard = ({ data }: PreviewCardProps) => {
-  const {
-    slug,
-    textTitleForRecipeName,
-    textForRecipeTagline,
-    imageForLandingRecipe,
-  } = data;
-  return (
-    <div className={styles.home__favorite__recipes__card}>
-      <OcImageComponent
-        height={imgDim(0.1)[0]}
-        width={imgDim(0.5)[1]}
-        src={`/fallback/fallback${Math.floor(Math.random() * 10) + 1}.jpg`}
-        alt={imageForLandingRecipe?.alt || textForRecipeTagline || ""}
-      />
-      <a href={`/recipes/${slug?.current}`}>
-        <h3>{textTitleForRecipeName}</h3>
-        <p>{textForRecipeTagline}</p>
-      </a>
-    </div>
-  );
-};
+// const FavoriteCard = ({ data }: PreviewCardProps) => {
+//   const {
+//     slug,
+//     textTitleForRecipeName,
+//     textForRecipeTagline,
+//     imageForLandingRecipe,
+//   } = data;
+//   return (
+//     <div className={styles.home__favorite__recipes__card}>
+//       <OcImageComponent
+//         height={imgDim(0.1)[0]}
+//         width={imgDim(0.5)[1]}
+//         src={`/fallback/fallback${Math.floor(Math.random() * 10) + 1}.jpg`}
+//         alt={imageForLandingRecipe?.alt || textForRecipeTagline || ""}
+//       />
+//       <a href={`/recipes/${slug?.current}`}>
+//         <h3>{textTitleForRecipeName}</h3>
+//         <p>{textForRecipeTagline}</p>
+//       </a>
+//     </div>
+//   );
+// };
 
 const RecipeOfMonthCard = ({ data }: RecipeOfMonthCardProps) => {
   const { recipeOfMonthTitle, recipe, description } = data;

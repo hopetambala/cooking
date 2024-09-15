@@ -54,12 +54,6 @@
   gap: var(--oc-prim-spacing-m);
 }
 
-.home__favorite__recipes__card {
-  display: flex;
-  background-color: var(--oc-prim-color-white);
-  border-radius: var(--oc-dimensions-prim-border-radius-size-md);
-}
-
 .home__explore__recipes__card__container > * {
   min-width: var(--oc-dimensions-component-card-width-size-minimum);
   max-width: var(--oc-dimensions-component-card-width-size-minimum);
