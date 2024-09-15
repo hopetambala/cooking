@@ -108,11 +108,21 @@ export default async function Recipe({ params }: Params) {
           alt={imageForFinishedProduct?.alt || textForRecipeTagline || ""}
         />
         <PortableText value={textFinishedProduct} />
-        <div id="step-by-step-process">
+        <div
+          id="step-by-step-process"
+          className={
+            styles["recipe-page__content__main--step-by-step-process"]
+          }
+        >
           <h2>{textTitleForRecipeName}</h2>
-          <p>Prep time, cook, time, total time deets</p>
+          {/* <p>Prep time, cook, time, total time deets</p> */}
           <div>
             <h3>Ingredients</h3>
+            <ul>
+              {ingredients.map(({ _key, name, measurement, amount }) => (
+                <li key={_key}>{`${amount} ${measurement} of ${name}`}</li>
+              ))}
+            </ul>
           </div>
           <div>
             <h3>Instructions</h3>

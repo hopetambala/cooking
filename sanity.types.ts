@@ -68,6 +68,39 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type RecipeOftheMonth = {
+  _id: string;
+  _type: "recipeOftheMonth";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  recipeOfMonthTitle?: string;
+  recipe?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "recipe";
+  };
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h2" | "h3";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
 export type Ingredient = {
   _type: "ingredient";
   amount?: number;
@@ -81,6 +114,8 @@ export type Recipe = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
+  isFanFavorite?: boolean;
+  publishedAtCustom?: string;
   textTitleForRecipeName?: string;
   textForRecipeTagline?: string;
   slug?: Slug;
@@ -302,5 +337,5 @@ export type Slug = {
   source?: string;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Ingredient | Recipe | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | RecipeOftheMonth | Ingredient | Recipe | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;

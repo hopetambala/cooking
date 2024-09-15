@@ -24,6 +24,17 @@
   border-radius: var(--oc-dimensions-prim-border-radius-size-md);
 }
 
+.recipe-page__content__main--step-by-step-process >* {
+  padding: var(--oc-prim-spacing-s) 0;
+}
+
+.recipe-page__content__main--step-by-step-process ul >*,
+.recipe-page__content__main--step-by-step-process ol >*{
+  padding: var(--oc-prim-spacing-xs) 0;
+}
+
+
+
 /** Mobile */
 @media (max-width: 992px) {
   .recipe-page__content {

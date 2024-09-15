@@ -56,7 +56,12 @@ export async function getSingleRecipeDetails(slug: string) {
 }
 
 export async function getRecipeOfMonth() {
-  const query = groq`
+  const params = {};
+  const next = {
+    revalidate: 100, // for simple, time-based revalidation
+  };
+  return client.fetch(
+    groq`
   *[_type == "recipeOftheMonth"] | order(createdAt desc)[0] {
     _id,
     recipeOfMonthTitle,
@@ -68,14 +73,12 @@ export async function getRecipeOfMonth() {
     },
     description
   }
-`;
-  const params = {};
-  const next = {
-    revalidate: 100, // for simple, time-based revalidation
-  };
-  return client.fetch(query, params, {
-    next,
-  });
+`,
+    params,
+    {
+      next,
+    }
+  );
 }
 /**
 Two types of data fetches

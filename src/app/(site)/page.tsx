@@ -1,4 +1,4 @@
-import { RecipeType } from "@/types/sanity.custom-types";
+import { RecipeOftheMonth, RecipeType } from "@/types/sanity.custom-types";
 import { PortableText } from "@portabletext/react";
 import styles from "./page.module.css";
 import { getAllRecipePreviews, getRecipeOfMonth } from "@/sanity/sanity.query";
@@ -17,7 +17,7 @@ interface PreviewCardProps {
 }
 
 interface RecipeOfMonthCardProps {
-  data: any;
+  data: RecipeOftheMonth;
 }
 
 const PreviewCard = ({ data }: PreviewCardProps) => {
@@ -69,14 +69,13 @@ const FavoriteCard = ({ data }: PreviewCardProps) => {
 };
 
 const RecipeOfMonthCard = ({ data }: RecipeOfMonthCardProps) => {
-  const { recipeOfMonthTitle, recipe, imageForLandingRecipe, description } =
-    data;
+  const { recipeOfMonthTitle, recipe, description } = data;
 
   return (
     <div className={styles.home__recipe_of_month__text__container}>
       <h4>Recipe of the Month</h4>
       <h3>{recipeOfMonthTitle}</h3>
-      <PortableText value={description} />
+      {description && <PortableText value={description} />}
       <OCButton>
         <a href={`/recipes/${recipe?.slug?.current}`}>View recipe</a>
       </OCButton>
