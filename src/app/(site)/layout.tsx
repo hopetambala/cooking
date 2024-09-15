@@ -21,7 +21,7 @@ const recipeMenuItems: SubNavItem[] = [
 
 const infoMenuItems: SubNavItem[] = [
   {
-    text: "About",
+    text: "",
     url: "/about",
   },
 ];
