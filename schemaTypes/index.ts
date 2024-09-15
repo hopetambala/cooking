@@ -1,6 +1,3 @@
-import {recipe, ingredient} from "./recipe";
+import { recipe, ingredient, recipeOftheMonth } from "./recipe";
 
-export const schemaTypes = [
-    recipe,
-    ingredient
-]
+export const schemaTypes = [recipe, ingredient, recipeOftheMonth];

@@ -24,7 +24,6 @@ const ingredient = {
     { name: "amount", type: "number", title: "Amount of ingredient" },
     { name: "measurement", type: "string", title: "Measuring utensil size" },
     { name: "name", type: "string", title: "Name of ingredient" },
-
   ],
 };
 
@@ -33,6 +32,18 @@ const recipe = {
   title: "Recipe Page Template",
   type: "document",
   fields: [
+    {
+      name: "isFanFavorite",
+      title: "Fan Favorite",
+      type: "boolean",
+      description: "Mark true if this is a fan favorite recipe",
+    },
+    {
+      name: "publishedAtCustom",
+      title: "Published At",
+      type: "datetime",
+      description: "Manual override for the published date",
+    },
     defineField({
       name: "textTitleForRecipeName",
       title: "Recipe Name",
@@ -277,4 +288,47 @@ const recipe = {
   ],
 };
 
-export { recipe, ingredient };
+const recipeOftheMonth = {
+  name: "recipeOftheMonth",
+  title: "Recipe of the Month",
+  type: "document",
+  fields: [
+    defineField({
+      name: "recipeOfMonthTitle",
+      title: "Recipe of the Month Title",
+      type: "string",
+    }),
+    {
+      title: "Recipes",
+      name: "recipe",
+      validation: (rule: { required: () => any }) => [rule.required()],
+      type: "reference",
+      to: [{ type: "recipe" }],
+    },
+    {
+      title: "Description",
+      name: "description",
+      type: "array",
+      options: {
+        spellCheck: true,
+      },
+      description: `A descriptive blurb for the recipe of the month i.e. 
+
+        Easy overnight oats infused with the flavors of apple pie! 
+        Naturally sweetened, cinnamon-infused, and just 9 wholesome ingredients required. 
+        Perfect for fall and beyond!`,
+      of: [
+        {
+          type: "block",
+          styles: [
+            { title: "Normal", value: "normal" },
+            { title: "H2", value: "h2" },
+            { title: "H3", value: "h3" },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+export { recipe, ingredient, recipeOftheMonth };

@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { getSingleRecipeDetails } from "@/sanity/sanity.query";
+import { getAllRecipePreviews, getSingleRecipeDetails } from "@/sanity/sanity.query";
 import { PortableText } from "@portabletext/react";
 import type { RecipeType } from "@/types/sanity.custom-types";
 import type { Metadata } from "next";
@@ -7,6 +6,9 @@ import { generateRandomFallbackImage } from "@/utils/testing-helpers";
 import { AdBanner, AdSlot } from "@/overcooked-design-system/ad-components";
 import styles from "./page.module.css";
 import OcImageComponent from "@/overcooked-design-system/ui-components/image/OcImageComponent";
+import { OCButton } from "@/overcooked-design-system/ui-components";
+import { imgDim } from "@/utils/general";
+import { FavoriteCard } from "@/overcooked-design-system/cooking-components";
 
 type Params = {
   params: {
@@ -36,6 +38,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function Recipe({ params }: Params) {
   const slug = params.recipe;
+  const recipes: RecipeType[] = await getAllRecipePreviews();
   const recipe: RecipeType = await getSingleRecipeDetails(slug);
   const {
     textTitleForRecipeName,
@@ -49,20 +52,26 @@ export default async function Recipe({ params }: Params) {
     imageForFinishedProduct,
     textFinishedProduct,
     ingredients,
-    instructions
+    instructions,
   } = recipe;
 
   const clxName = [
     styles["recipe-page__content"],
     "class-comp-section-content-spacing-desktop",
   ].join(" ");
+
   return (
     <div className={clxName}>
       <main className={styles["recipe-page__content__main"]}>
         <h1>{textTitleForRecipeName}</h1>
+        <div>
+          <OCButton>
+            <a href="#step-by-step-process">Jump to recipe</a>
+          </OCButton>
+        </div>
         <OcImageComponent
-          height={1140}
-          width={760}
+          height={imgDim(1)[0]}
+          width={imgDim(1)[1]}
           src={imageForLandingRecipe?.image || generateRandomFallbackImage()}
           alt={imageForLandingRecipe?.alt || textForRecipeTagline || ""}
         />
@@ -71,8 +80,8 @@ export default async function Recipe({ params }: Params) {
           <AdBanner dataAdSlotId="5492208947" type="display" />
         </AdSlot>
         <OcImageComponent
-          height={1140}
-          width={760}
+          height={imgDim(1)[0]}
+          width={imgDim(1)[1]}
           src={imageForIngredients?.image || generateRandomFallbackImage()}
           alt={imageForIngredients?.alt || textForRecipeTagline || ""}
         />
@@ -84,8 +93,8 @@ export default async function Recipe({ params }: Params) {
           <AdBanner dataAdSlotId="5492208947" type="display" />
         </AdSlot>
         <OcImageComponent
-          height={1140}
-          width={760}
+          height={imgDim(1)[0]}
+          width={imgDim(1)[1]}
           src={imageOfProcess?.image || generateRandomFallbackImage()}
           alt={imageOfProcess?.alt || textForRecipeTagline || ""}
         />
@@ -94,18 +103,25 @@ export default async function Recipe({ params }: Params) {
           <AdBanner dataAdSlotId="8196230071" type="in-article" />
         </AdSlot>
         <OcImageComponent
-          height={1140}
-          width={760}
+          height={imgDim(1)[0]}
+          width={imgDim(1)[1]}
           src={imageForFinishedProduct?.image || generateRandomFallbackImage()}
           alt={imageForFinishedProduct?.alt || textForRecipeTagline || ""}
         />
         <PortableText value={textFinishedProduct} />
-        <div id="step-by-step-process">
+        <div
+          id="step-by-step-process"
+          className={styles["recipe-page__content__main--step-by-step-process"]}
+        >
           <h2>{textTitleForRecipeName}</h2>
-          <p>Prep time, cook, time, total time deets</p>
+          {/* <p>Prep time, cook, time, total time deets</p> */}
           <div>
             <h3>Ingredients</h3>
-            Cool calculator for serving idea I had
+            <ul>
+              {ingredients.map(({ _key, name, measurement, amount }) => (
+                <li key={_key}>{`${amount} ${measurement} of ${name}`}</li>
+              ))}
+            </ul>
           </div>
           <div>
             <h3>Instructions</h3>
@@ -138,10 +154,13 @@ export default async function Recipe({ params }: Params) {
         </AdSlot>
         <div id="Fan Favorites">
           <h3>Related recipes and fan favorites</h3>
-          <div>Recipe 1</div>
-          <div>Recipe 2</div>
-          <div>Recipe 3</div>
-          <button>View More</button>
+          {recipes.map((data) => {
+            if (!data.isFanFavorite) return null;
+            return <FavoriteCard variant="small" key={data._id} data={data} />;
+          })}
+          <OCButton>
+            <a href={`/#exploreallrecipes`}>Explore more recipes</a>
+          </OCButton>{" "}
         </div>
         <AdSlot name="Desktop Sidebar 7" type="sidebar--sticky">
           <AdBanner dataAdSlotId="5492208947" type="display" />

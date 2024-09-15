@@ -67,6 +67,12 @@ h6 {
     line-height: var(--oc-typography-sem-heading-h6-line-height);
 }
 
+p {
+    font-weight: var(--oc-typography-sem-body-font-weight);
+    font-size: var(--oc-typography-sem-body-font-size);
+    line-height: var(--oc-typography-sem-body-line-height);
+}
+
 small {
     font-size: var(--oc-typography-prim-font-size-small);
     line-height: var(--oc-typography-prim-line-height-small);

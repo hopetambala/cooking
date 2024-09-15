@@ -1,0 +1,4 @@
+.oc-button {
+  background-color: var(--oc-prim-color-blue-200);
+  border: .5px solid var(--oc-prim-color-blue-500);
+  border-radius: var(--oc-dimensions-prim-border-radius-size-sm);}

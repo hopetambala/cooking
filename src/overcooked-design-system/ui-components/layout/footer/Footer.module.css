@@ -1,3 +1,4 @@
 .oc-footer__container {
+  background-color: var(--oc-sem-color-brand-yellow);
   padding: var(--oc-prim-spacing-xl);
 }

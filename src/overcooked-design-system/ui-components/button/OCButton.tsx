@@ -1,13 +1,11 @@
+import styles from "./OCButton.module.css";
 
-
-// Left menu button
-// <button className="menu-toggle">
-//             <span className="screen-reader-text">Menu</span>
-//           </button>
-const OCButton = () => {
-  return <button>Click me</button>;
-};   
-
-
+interface OCButtonProps {
+  children: React.ReactNode;
+  href?: string;
+}
+const OCButton = ({ children, ...props }: OCButtonProps) => {
+  return <button {...props} className={styles['oc-button']}>{children}</button>;
+};
 
 export default OCButton;
