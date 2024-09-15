@@ -54,6 +54,29 @@ export async function getSingleRecipeDetails(slug: string) {
     next,
   });
 }
+
+export async function getRecipeOfMonth() {
+  const query = groq`
+  *[_type == "recipeOftheMonth"] | order(createdAt desc)[0] {
+    _id,
+    recipeOfMonthTitle,
+    recipe->{
+      _id,
+      textTitleForRecipeName,
+      slug,
+      imageForLandingRecipe {alt, "image": asset->url}
+    },
+    description
+  }
+`;
+  const params = {};
+  const next = {
+    revalidate: 100, // for simple, time-based revalidation
+  };
+  return client.fetch(query, params, {
+    next,
+  });
+}
 /**
 Two types of data fetches
 1. Previews

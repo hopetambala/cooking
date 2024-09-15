@@ -297,7 +297,6 @@ const recipeOftheMonth = {
       name: "recipeOfMonthTitle",
       title: "Recipe of the Month Title",
       type: "string",
-      validation: (rule) => createTextValidator(rule, 30, 50),
     }),
     {
       title: "Recipes",
@@ -307,8 +306,8 @@ const recipeOftheMonth = {
       to: [{ type: "recipe" }],
     },
     {
-      name: "description",
       title: "Description",
+      name: "description",
       type: "array",
       options: {
         spellCheck: true,

@@ -1,11 +1,23 @@
 import { RecipeType } from "@/types/sanity.custom-types";
+import { PortableText } from "@portabletext/react";
 import styles from "./page.module.css";
-import { getAllRecipePreviews } from "@/sanity/sanity.query";
-import { OcSection, OCCard, OcFlexGrid, OcLoadingSkeleton, OCImage as OcImageComponent } from "@/overcooked-design-system/ui-components";
+import { getAllRecipePreviews, getRecipeOfMonth } from "@/sanity/sanity.query";
+import {
+  OcSection,
+  OCCard,
+  OcFlexGrid,
+  OcLoadingSkeleton,
+  OCImage as OcImageComponent,
+  OCButton,
+} from "@/overcooked-design-system/ui-components";
 import { imgDim } from "@/utils/general";
 
 interface PreviewCardProps {
   data: RecipeType;
+}
+
+interface RecipeOfMonthCardProps {
+  data: any;
 }
 
 const PreviewCard = ({ data }: PreviewCardProps) => {
@@ -56,8 +68,26 @@ const FavoriteCard = ({ data }: PreviewCardProps) => {
   );
 };
 
+const RecipeOfMonthCard = ({ data }: RecipeOfMonthCardProps) => {
+  const { recipeOfMonthTitle, recipe, imageForLandingRecipe, description } =
+    data;
+
+  return (
+    <div className={styles.home__recipe_of_month__text__container}>
+      <h4>Recipe of the Month</h4>
+      <h3>{recipeOfMonthTitle}</h3>
+      <PortableText value={description} />
+      <OCButton>
+        <a href={`/recipes/${recipe?.slug?.current}`}>View recipe</a>
+      </OCButton>
+    </div>
+  );
+};
+
 export default async function Home() {
   const recipes: RecipeType[] = await getAllRecipePreviews();
+
+  const recipeOfMonth = await getRecipeOfMonth();
 
   if (!recipes) {
     return <OcLoadingSkeleton />;
@@ -74,16 +104,7 @@ export default async function Home() {
       </OcSection>
       <OcSection isNoTitle title="Recipe of the Month">
         <div className={styles.home__recipe_of_month__container}>
-          <div className={styles.home__recipe_of_month__text__container}>
-            <h4>Recipe of the Month</h4>
-            <h3>Recipe title</h3>
-            <p>
-              Easy overnight oats infused with the flavors of apple pie!
-              Naturally sweetened, cinnamon-infused, and just 9 wholesome
-              ingredients required. Perfect for fall and beyond!
-            </p>
-            <button>View Recipe</button>
-          </div>
+          <RecipeOfMonthCard data={recipeOfMonth} />
           <div className={styles.home__recipe_of_month__image__container}>
             <OcImageComponent
               height={1000}
