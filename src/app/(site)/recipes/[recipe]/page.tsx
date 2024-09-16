@@ -143,10 +143,11 @@ export default async function Recipe({ params }: Params) {
             alt={"Meet the Chef"}
           />
           <p>
-            I’m Tieghan, the recipes you’ll find here are inspired by the people
-            and places I love most. I try to live simply, eat seasonally, and
-            cook with whole foods. My hope is to inspire a love for amazing
-            food, as well as the courage to try something new!
+            I’m Crismary, the recipes you’ll find here are inspired by my life in the 
+            Dominican Republic and the people who made it so special. I’m passionate
+            about bringing simple yet delightful recipes that anyone can enjoy. 
+            My hope is to inspire a love for amazing carribean
+            food, as well as give you the confidence to try something new!
           </p>
         </div>
         <AdSlot name="Desktop Sidebar 6" type="sidebar">
